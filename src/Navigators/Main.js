@@ -12,17 +12,19 @@ const MainNavigator = () => {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName
-
+          color = focused ? '#900' : '#222'
           if (route.name === 'Home') {
-            iconName = focused
-              ? 'ios-information-circle'
-              : 'ios-information-circle-outline'
-          } else if (route.name === 'Settings') {
-            iconName = focused ? 'ios-list-box' : 'ios-list'
+            iconName = focused ? 'home' : 'home'
+          } else if (route.name === 'Likes') {
+            iconName = focused ? 'heart' : 'heart'
+          } else if (route.name === 'Profile') {
+            iconName = focused ? 'user' : 'user'
+          } else if (route.name === 'History') {
+            iconName = focused ? 'history' : 'history'
           }
 
           // You can return any component that you like here!
-          return <Icon name="rocket" size={30} color="#900" />
+          return <Icon name={iconName} size={30} color={color} />
         },
       })}
       tabBarOptions={{
@@ -31,6 +33,9 @@ const MainNavigator = () => {
       }}
     >
       <Tab.Screen name="Home" component={MainContainer} />
+      <Tab.Screen name="Likes" component={MainContainer} />
+      <Tab.Screen name="Profile" component={MainContainer} />
+      <Tab.Screen name="History" component={MainContainer} />
     </Tab.Navigator>
   )
 }

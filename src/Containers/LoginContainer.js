@@ -5,8 +5,9 @@ import { useTheme } from '@/Hooks'
 import { Brand } from '@/Components'
 import { setDefaultTheme } from '@/Store/Theme'
 import { navigateAndSimpleReset } from '@/Navigators/utils'
+import { StyleSheet } from 'react-native'
 
-const StartupContainer = () => {
+const LoginContainer = () => {
   const { Layout, Gutters, Fonts } = useTheme()
 
   const { t } = useTranslation()
@@ -18,7 +19,7 @@ const StartupContainer = () => {
       }, 2000),
     )
     await setDefaultTheme({ theme: 'default', darkMode: null })
-    navigateAndSimpleReset('GettingStarted')
+    navigateAndSimpleReset('Main')
   }
 
   useEffect(() => {
@@ -26,12 +27,30 @@ const StartupContainer = () => {
   })
 
   return (
-    <View style={[Layout.fill, Layout.colCenter]}>
-      <Brand />
-      <ActivityIndicator size={'large'} style={[Gutters.largeVMargin]} />
-      <Text style={Fonts.textCenter}>{t('welcome')}</Text>
+    // <View style={[Layout.fill, Layout.colCenter]}>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text>Header</Text>
+      </View>
+      <View style={styles.footer}>
+        <Text>Footer</Text>
+      </View>
     </View>
   )
 }
 
-export default StartupContainer
+export default LoginContainer
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'red',
+  },
+  header: {
+    flex: 2,
+  },
+  footer: {
+    flex: 1,
+    backgroundColor: 'blue',
+  },
+})

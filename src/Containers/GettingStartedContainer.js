@@ -8,7 +8,7 @@ import { useTheme } from '@/Hooks'
 
 const GettingStartedContainer = () => {
   const { Common, Fonts, Gutters, Layout } = useTheme()
-  const navigateToMain = () => {
+  const navigateToLogin = () => {
     var dest = 'Login'
     console.log('navigating to ' + dest)
     navigateAndSimpleReset(dest)
@@ -26,7 +26,7 @@ const GettingStartedContainer = () => {
           Gutters.regularBMargin,
           styles.button,
         ]}
-        onPress={navigateToMain}
+        onPress={navigateToLogin}
       >
         <Text style={[Fonts.textRegular, styles.buttonText]}>Get Started</Text>
       </TouchableOpacity>
